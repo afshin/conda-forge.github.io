@@ -4,17 +4,369 @@
         <title>conda-forge | community-driven packaging for conda Blog</title>
         <link>https://conda-forge.org/news/</link>
         <description>conda-forge | community-driven packaging for conda Blog</description>
-        <lastBuildDate>Mon, 29 Jul 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Oct 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[conda-forge Discourse forum is now read-only]]></title>
+            <link>https://conda-forge.org/news/2025/10/15/conda-forge-discourse-read-only/</link>
+            <guid>https://conda-forge.org/news/2025/10/15/conda-forge-discourse-read-only/</guid>
+            <pubDate>Wed, 15 Oct 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[We have made the conda-forge Discourse forum read-only. Please use the conda-forge Zulip chat instead.]]></description>
+            <content:encoded><![CDATA[<p>We have made the <a href="https://conda.discourse.group/c/pkg-building/conda-forge/25" target="_blank" rel="noopener noreferrer" class="">conda-forge Discourse forum</a> read-only. Please use the conda-forge <a href="https://conda-forge.zulipchat.com/" target="_blank" rel="noopener noreferrer" class="">Zulip chat</a> instead.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Dropping Python 3.9 support in conda-forge]]></title>
+            <link>https://conda-forge.org/news/2025/08/18/python-3-9/</link>
+            <guid>https://conda-forge.org/news/2025/08/18/python-3-9/</guid>
+            <pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[With Python 3.9 reaching end-of-life in Oct 2025 and Python]]></description>
+            <content:encoded><![CDATA[<p>With Python 3.9 reaching end-of-life in Oct 2025 and Python
+3.14 being released the same month, we have decided to drop
+3.9 from our default build matrix. This will be reflected
+in your feedstock configuration on the next rerender.
+The decision to drop support 1.5 months before its EOL is
+to avoid the strain on conda-forge CI while we add support
+for 3.14.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[New Accelerate support for macOS 13.3+]]></title>
+            <link>https://conda-forge.org/news/2025/07/31/new-accelerate-macos/</link>
+            <guid>https://conda-forge.org/news/2025/07/31/new-accelerate-macos/</guid>
+            <pubDate>Thu, 31 Jul 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[conda-forge by default uses OpenBLAS as its BLAS and LAPACK]]></description>
+            <content:encoded><![CDATA[<p>conda-forge by default uses <code>OpenBLAS</code> as its BLAS and LAPACK
+provider on macOS as it was updated regularly and is the least
+buggiest performant BLAS/LAPACK implementation.</p>
+<p>macOS 13.3 updated the Accelerate framework after a long time with
+improved support for LAPACK APIs and has fixes for long-time known
+bugs in the older Accelerate's BLAS and LAPACK APIs.
+conda-forge has added support for this
+new Accelerate framework by using a shim library to expose its
+functionality to most conda-forge packages including <code>numpy</code>,
+<code>scipy</code> and <code>pytorch</code>.</p>
+<p>You can use it by doing</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">conda install libblas=*=*_newaccelerate</span><br></span></code></pre></div></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Moving to GCC 14 and Clang 19 as default compiler versions]]></title>
+            <link>https://conda-forge.org/news/2025/07/01/moving-to-gcc-14-clang-19/</link>
+            <guid>https://conda-forge.org/news/2025/07/01/moving-to-gcc-14-clang-19/</guid>
+            <pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[As part of our regular toolchain updates, we're planning to update the default]]></description>
+            <content:encoded><![CDATA[<p>As part of our regular toolchain updates, we're planning to update the default
+versions of GCC (for linux) to v14 and of Clang (for OSX) to v19, in one week.</p>
+<p>For more details, see <a href="https://github.com/conda-forge/conda-forge-pinning-feedstock/pull/7421" target="_blank" rel="noopener noreferrer" class="">https://github.com/conda-forge/conda-forge-pinning-feedstock/pull/7421</a>.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Moving to Visual Studio 2022 as default windows compiler]]></title>
+            <link>https://conda-forge.org/news/2025/06/11/moving-to-vs2022/</link>
+            <guid>https://conda-forge.org/news/2025/06/11/moving-to-vs2022/</guid>
+            <pubDate>Wed, 11 Jun 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Microsoft's Visual Studio (VS) 2019 compiler has reached its]]></description>
+            <content:encoded><![CDATA[<p>Microsoft's Visual Studio (VS) 2019 compiler has reached its
+<a href="https://learn.microsoft.com/en-us/lifecycle/products/visual-studio-2019" target="_blank" rel="noopener noreferrer" class="">end of life</a>
+over a year ago. In the meantime, several projects have moved on and
+fail to compile with VS2019.</p>
+<p>We are planning to update our default compilers on windows to the (fully compatible)
+successor VS2022 in one week from now.</p>
+<p>This will not affect you as a general user of conda-forge packages on windows;
+the only potential impact is that if you are compiling locally with VS2019 against
+artefacts produced by conda-forge, you might be required to upgrade.</p>
+<p>For more details see <a href="https://github.com/conda-forge/conda-forge.github.io/issues/2138" target="_blank" rel="noopener noreferrer" class="">https://github.com/conda-forge/conda-forge.github.io/issues/2138</a>.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Dropping CUDA 11.8 as a default CUDA version]]></title>
+            <link>https://conda-forge.org/news/2025/05/29/cuda-118/</link>
+            <guid>https://conda-forge.org/news/2025/05/29/cuda-118/</guid>
+            <pubDate>Thu, 29 May 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[CUDA 11.8 is the last holdover from the old days before conda-forge]]></description>
+            <content:encoded><![CDATA[<p>CUDA 11.8 is the last holdover from the old days before conda-forge
+<a href="https://github.com/conda-forge/conda-forge.github.io/issues/1963" target="_blank" rel="noopener noreferrer" class="">switched</a>
+to the new and shiny CUDA 12+ infrastructure, where the CUDA toolchain
+is provided as native conda-packages, rather than a blob in an image.</p>
+<p>For CUDA-enabled feedstocks, we've been building both 11.8 and 12.6 by default
+for a while now, but many feedstocks (notably pytorch, tensorflow, onnx, jax etc.)
+have dropped CUDA 11.8 for many months already.</p>
+<p>Due to various constraints (details below), we are dropping CUDA 11.8 as a default
+version in our global pinning on June 5th. It will still be possible to opt into
+building CUDA 11.8 on a per-feedstock basis where this is necessary or beneficial.</p>
+<p>The above-mentioned contraints are mainly:</p>
+<ul>
+<li class="">it <a href="https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/6967" target="_blank" rel="noopener noreferrer" class="">complicates our pinning</a> due to needing to switch images and compilers with 11.8.</li>
+<li class="">it keeps us from <a href="https://github.com/conda-forge/conda-forge-pinning-feedstock/pull/7005" target="_blank" rel="noopener noreferrer" class="">migrating</a>
+to newer CUDA 12.x versions necessary to support new architectures.</li>
+<li class="">it's <a href="https://github.com/conda-forge/conda-forge.github.io/issues/2138#issuecomment-2916743741" target="_blank" rel="noopener noreferrer" class="">not compatible with VS2022</a>, which is due to become the default toolchain on windows
+in conda-forge soon (the previous VS2019 has reached end-of-life more than a year ago).</li>
+<li class="">it complicates our infrastructure in several places, due to the big differences between the
+before/after of the new CUDA architecture.</li>
+</ul>
+<p>After we have removed CUDA 11.8 from the pinning, any feedstock still building that version
+will drop the respective CI jobs upon rerendering. For feedstocks wanting to keep building
+CUDA 11.8 a bit longer, we have provided a custom migrator.</p>
+<p>The way to make use of this is to copy
+<a href="https://github.com/conda-forge/conda-forge-pinning-feedstock/blob/main/recipe/migrations/cuda118.yaml" target="_blank" rel="noopener noreferrer" class=""><code>cuda118.yaml</code></a>
+from the global pinning into <code>.ci_support/migrations</code> on your feedstock.
+If the <code>migrations</code> subfolder doesn't exist, please create it. Once that's committed
+(and there are no skips in the recipe for CUDA 11.8), rerendering the feedstock
+will reinstate the builds for CUDA 11.8. If you have trouble with that, please open
+a thread on <a href="https://conda-forge.zulipchat.com/" target="_blank" rel="noopener noreferrer" class="">https://conda-forge.zulipchat.com/</a>.</p>
+<p>Finally, please let us
+know in the <a href="https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/7404" target="_blank" rel="noopener noreferrer" class="">issue</a>
+if your feedstock still needs to support CUDA 11.8 and why (later down the line we'll want to
+drop support also in conda-forge-ci-setup, and knowing what feedstocks - if any - still need
+CUDA 11.8 will help guide the decision on timing).</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Upcoming closure of NumPy 2.0 migration]]></title>
+            <link>https://conda-forge.org/news/2025/05/28/numpy-2-migration-closure/</link>
+            <guid>https://conda-forge.org/news/2025/05/28/numpy-2-migration-closure/</guid>
+            <pubDate>Wed, 28 May 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[NumPy 2.0 was a big change (the first major version in 15 years). For more than a year, we]]></description>
+            <content:encoded><![CDATA[<p>NumPy 2.0 was a big change (the first major version in 15 years). For more than a year, we
+have been migrating feedstocks from NumPy 1.x to NumPy 2.x, and while not every affected
+feedstock has been done, we are planning to conclude the migration in one week.
+Note that NumPy 2 support is required for feedstocks that intend to support Python 3.13
+and above.</p>
+<p>For feedstocks that are not compatible with v2.x yet, this means you will have to add</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">numpy</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1.26</span><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic"># or 1.25</span><br></span></code></pre></div></div>
+<p>to your <code>recipe/conda_build_config.yaml</code>, and then rerender. Pins below 1.25 are not possible
+if your feedstock supports Python 3.12, as NumPy 1.25 was the first version with support for
+that Python version (and it will not be possible going forward to pin different NumPy versions
+for different Python versions).</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Governance document moved to conda-forge/governance]]></title>
+            <link>https://conda-forge.org/news/2025/05/08/governance-moved/</link>
+            <guid>https://conda-forge.org/news/2025/05/08/governance-moved/</guid>
+            <pubDate>Thu, 08 May 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Following a change in our governance, this document lives now in conda-forge/governance, along with the CSV files that list the core and emeritus members.]]></description>
+            <content:encoded><![CDATA[<p>Following a <a href="https://github.com/conda-forge/conda-forge.github.io/pull/2501" target="_blank" rel="noopener noreferrer" class="">change</a> in our governance, this document lives now in <a href="https://github.com/conda-forge/governance" target="_blank" rel="noopener noreferrer" class=""><code>conda-forge/governance</code></a>, along with the CSV files that list the <code>core</code> and <code>emeritus</code> members.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Updating our Ubuntu base for Miniforge Docker images (20.04 → 24.04)]]></title>
+            <link>https://conda-forge.org/news/2025/04/17/new-ubuntu-base-for-miniforge-docker-images/</link>
+            <guid>https://conda-forge.org/news/2025/04/17/new-ubuntu-base-for-miniforge-docker-images/</guid>
+            <pubDate>Thu, 17 Apr 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[The base image for our Ubuntu Dockerfiles has been upgraded from Ubuntu 20.04]]></description>
+            <content:encoded><![CDATA[<p>The base image for our Ubuntu Dockerfiles has been upgraded from Ubuntu 20.04
+(focal) to Ubuntu 24.04 (noble) in
+<a href="https://github.com/conda-forge/miniforge-images/pull/145" target="_blank" rel="noopener noreferrer" class="">PR #145</a>.
+This change ensures continued support and access to newer packages and system
+libraries.</p>
+<p>Downstream users building on top of the Ubuntu variant of our containers should
+verify compatibility with the updated environment.</p>
+<p>Thanks to @rpanai for the contribution and to the reviewers for their input.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Security Incident with Package Uploads (CVE-2025-31484)]]></title>
+            <link>https://conda-forge.org/news/2025/04/02/Security-Incident-with-Package-Uploads/</link>
+            <guid>https://conda-forge.org/news/2025/04/02/Security-Incident-with-Package-Uploads/</guid>
+            <pubDate>Wed, 02 Apr 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Yesterday, conda-forge was notified of a security incident reporting that the anaconda.org upload token]]></description>
+            <content:encoded><![CDATA[<p>Yesterday, <code>conda-forge</code> was notified of a security incident reporting that the <code>anaconda.org</code> upload token
+for the <code>conda-forge</code> channel had been accidentally leaked between on or about 2025-02-10 to 2025-04-01. Our
+investigation resulted in the temporary artifact upload shutdown you observed yesterday (2025-04-01). The results
+of our analysis show that, as best as can reasonably be determined, the token was not used by any 3rd party to
+upload malicious artifacts.</p>
+<p>More details in the <a class="" href="https://conda-forge.org/blog/2025/04/02/security-incident-with-package-uploads/">corresponding blog post</a>.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Updating our default docker images]]></title>
+            <link>https://conda-forge.org/news/2024/11/22/new-images/</link>
+            <guid>https://conda-forge.org/news/2024/11/22/new-images/</guid>
+            <pubDate>Fri, 22 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[TL;DR: We have made some updates to our Docker images and build time GLIBC selection.]]></description>
+            <content:encoded><![CDATA[<p>TL;DR: We have made some updates to our Docker images and build time GLIBC selection.</p>
+<ol>
+<li class="">We've updated our default docker images to be based on alma9</li>
+<li class="">It is now easier to override <code>c_stdlib_version</code> (especially for CUDA-enabled feedstocks), though our baseline of 2.17 hasn't changed.</li>
+<li class="">Where necessary, you can more easily switch images by setting <code>os_version: ...</code> (see below).</li>
+<li class="">We've consolidated our image names to follow a consistent pattern:</li>
+</ol>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">linux-anvil-{x86_64,aarch64,ppc64le}:{cos7,alma8,alma9}</span><br></span></code></pre></div></div>
+<p>In general, it won't be necessary in the vast majority of cases to override the
+docker-image, but if you need to do so, you can add the following to <code>conda-forge.yml</code></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">os_version:             # just to demo different values;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  linux_64: cos7        # whenever possible, please use</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  linux_aarch64: alma8  # homogeneous distro versions</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  linux_ppc64le: alma9  # across platforms</span><br></span></code></pre></div></div>
+<p>Linux builds in conda-forge run on infrastructure derived from RHEL and its clones
+-- previously CentOS, now AlmaLinux. Primarily we need this for four different
+interrelated but distinct pieces:</p>
+<ul>
+<li class="">the docker images (containing the OS which will execute our builds)</li>
+<li class="">the sysroot (mainly the C standard library, <code>glibc</code>)</li>
+<li class="">the CDTs (pieces from the distribution we cannot package ourselves)</li>
+<li class="">feedstock usage of <code>yum_requirements.txt</code></li>
+</ul>
+<p>A first key observation is that the glibc appears twice -- once explicitly in the
+sysroot we package (and compile against!), and once implicitly in the image that
+our CI runs on. This setup is essential to provide highly compatible packages by
+default (by compiling against a cos7 baseline), while avoiding constant hassles
+for feedstocks where <em>any</em> of the build/host/run dependencies requires a newer
+glibc than the baseline.</p>
+<p>This is because, for packages requiring a newer <code>c_stdlib_version</code> (and thus compiling
+against a newer sysroot through the <code>{{ stdlib("c") }}</code> infrastructure), will inherit
+a runtime-requirement of <code>__glibc &gt;=c_stdlib_version</code>, which would be unsatisfiable on
+docker-images with a too-old glibc present at runtime.</p>
+<p>We've already had this setup since 2021 (when our glibc baseline was 2.12 from cos6,
+yet we already used cos7 images), but after increasing the glibc baseline to 2.17, our
+images had lost their lead again. This is mostly related due to the third component from
+above, the CDTs (core dependency trees). These represent packages from the distribution
+itself that are hard or impossible for us to provide, yet need a systematic way to
+interact with. You can read more about <em>why we want to avoid them as much as possible</em>
+<a href="https://conda-forge.org/docs/maintainer/knowledge_base/#why-are-cdts-bad" target="_blank" rel="noopener noreferrer" class="">here</a>.</p>
+<p>Due to the end of CentOS-as-we-knew it, we already had to rewrite a lot of the logic
+there in any case to switch to Alma, which we took as an opportunity to pare down the
+set of CDTs we provide going forward. In a large majority of cases, we have regular
+conda packages for some things that only used to be available as CDTs.</p>
+<p>CDTs and packages in <code>yum_requirements.txt</code> are closely related; in many ways it can
+be considered a similar compilation-vs.-runtime split as is the case with our sysroot
+(that we compile against) vs. the glibc in the image at runtime. The split here being
+that CDTs are what we use to compile against a given distro package, and <code>yum_requirements.txt</code>
+are how we tell the infrastructure to install them into the image, if they're also
+necessary at runtime (which is not always the case).</p>
+<p>In other words, using our own packages generally allows feedstocks to avoid <em>both</em> use
+of CDTs and <code>yum_requirements.txt</code>. You can check out the CDTs we removed
+<a href="https://github.com/conda-forge/cdt-builds/issues/66#issuecomment-1833417828" target="_blank" rel="noopener noreferrer" class="">here</a>
+and how <code>yum_requirements.txt</code> translate from CentOS to Alma (resp. our own packages)
+<a href="https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/6283#issuecomment-2440281086" target="_blank" rel="noopener noreferrer" class="">here</a>.</p>
+<p>The change of the image might mean that CDTs we have not repackaged for Alma do not
+match what's actually in the image anymore, or -- in rare cases -- that a package name
+under <code>yum_requirements.txt</code> needs to be updated. Please let us know if you run into
+problems there (after checking out the two links above how to transition a given package).</p>
+<p>Finally, there is one rare case where we explicitly ask feedstock authors to opt out
+of the newest images: for any feedstocks doing binary repackaging on linux (i.e. not
+compiling the package from source), please ensure that your image version (as specified
+in <code>conda-forge.yml</code>, see above) matches the <code>c_stdlib_version</code> that you are using.
+By default this is 2.17, which means you'd have to do</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">os_version:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  linux_64: cos7</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  linux_aarch64: cos7</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  linux_ppc64le: cos7</span><br></span></code></pre></div></div>
+<p>If you require a <code>c_stdlib_version</code> of 2.28 for a given platform, then set <code>alma8</code>.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Migration to Unique Feedstock Tokens per Provider]]></title>
+            <link>https://conda-forge.org/news/2024/11/08/unique-feedstock-token-per-provider-migration/</link>
+            <guid>https://conda-forge.org/news/2024/11/08/unique-feedstock-token-per-provider-migration/</guid>
+            <pubDate>Fri, 08 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[We will be slowly migrating conda-forge to use unique feedstock tokens per provider. The feedstock token is used to allow maintainers to copy packages from our staging area to the main conda-forge channel. This change will improve our security posture and help us limit the impact of any leaked tokens. During this migration we will also be using newly implemented feedstock token expiration times to avoid race conditions between token changes and running builds.]]></description>
+            <content:encoded><![CDATA[<p>We will be slowly migrating <code>conda-forge</code> to use unique feedstock tokens per provider. The feedstock token is used to allow maintainers to copy packages from our staging area to the main <code>conda-forge</code> channel. This change will improve our security posture and help us limit the impact of any leaked tokens. During this migration we will also be using newly implemented feedstock token expiration times to avoid race conditions between token changes and running builds.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[New time available for conda-forge core meetings]]></title>
+            <link>https://conda-forge.org/news/2024/11/07/new-time-core-meetings/</link>
+            <guid>https://conda-forge.org/news/2024/11/07/new-time-core-meetings/</guid>
+            <pubDate>Thu, 07 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[The core team has decided to change the time when core meetings happen to accommodate more attendees across different timezones. It will still happen every two Wednesdays, but starting next Wednesday, November 13th 2024, it will alternate between 1700 UTC and 1400 UTC.]]></description>
+            <content:encoded><![CDATA[<p>The core team has decided to change the time when core meetings happen to accommodate more attendees across different timezones. It will still happen every two Wednesdays, but starting next Wednesday, November 13th 2024, it will alternate between 17:00-18:00 UTC and 14:00-15:00 UTC.</p>
+<p>For clarity, these are the next dates:</p>
+<ul>
+<li class="">November 13th, 2024 at 17:00 UTC</li>
+<li class="">November 27th, 2024 at 14:00 UTC</li>
+<li class="">December 11th, 2024 at 17:00 UTC</li>
+<li class=""><del>December 25th, 2024 at 14:00 UTC</del></li>
+<li class="">January 8th, 2025, at 17:00 UTC</li>
+<li class="">... and so on.</li>
+</ul>
+<p>A new calendar is now available in the <a class="" href="https://conda-forge.org/community/meetings/">Community &gt; Meetings</a> section to help find the dates.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Moving to Zulip]]></title>
+            <link>https://conda-forge.org/news/2024/11/04/moving-to-zulip/</link>
+            <guid>https://conda-forge.org/news/2024/11/04/moving-to-zulip/</guid>
+            <pubDate>Mon, 04 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Two weeks ago we called a vote on CFEP-23 to decide whether we move our Element/Matrix chat rooms to Zulip.]]></description>
+            <content:encoded><![CDATA[<p>Two weeks ago we called a <a href="https://github.com/conda-forge/cfep/pull/54" target="_blank" rel="noopener noreferrer" class="">vote</a> on <a href="https://github.com/conda-forge/cfep/blob/main/cfep-23.md" target="_blank" rel="noopener noreferrer" class="">CFEP-23</a> to decide whether we move our <a href="https://matrix.to/#/#conda-forge:matrix.org" target="_blank" rel="noopener noreferrer" class="">Element/Matrix chat rooms</a> to Zulip.</p>
+<p>This vote has passed and now we are opening the doors to our Zulip instance: <a href="https://conda-forge.zulipchat.com/" target="_blank" rel="noopener noreferrer" class="">https://conda-forge.zulipchat.com/</a>. Please sign up to stay in touch!</p>
+<p>As per <a href="https://github.com/conda-forge/cfep/blob/main/cfep-23.md" target="_blank" rel="noopener noreferrer" class="">CFEP-23</a> (read it for more details), this means that we will stop using our <a href="https://matrix.to/#/#conda-forge:matrix.org" target="_blank" rel="noopener noreferrer" class="">Element chat rooms</a>. Instead all chat activity will continue in Zulip.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Changes to the Feedstock Output Validation Procedure]]></title>
+            <link>https://conda-forge.org/news/2024/09/08/output-validation-changes/</link>
+            <guid>https://conda-forge.org/news/2024/09/08/output-validation-changes/</guid>
+            <pubDate>Sun, 08 Sep 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[We have changed our feedstock output validation procedure. Instead of automatically]]></description>
+            <content:encoded><![CDATA[<p>We have changed our feedstock output validation procedure. Instead of automatically
+adding new packages to existing feedstocks (e.g., when a new output is added), we will now
+require that maintainers submit a PR to add the new output via our
+<a href="https://github.com/conda-forge/admin-requests?tab=readme-ov-file#add-a-package-output-to-a-feedstock" target="_blank" rel="noopener noreferrer" class="">admin-requests repository</a>.
+New feedstocks created via <code>staged-recipes</code> will have their outputs added automatically. If you maintain a feedstock
+that regularly adds new outputs (e.g., <code>llvmdev</code> has <code>libllvm18</code>, <code>libllvm19</code>, etc.), you can use the <code>admin-requsts</code> repo
+to add a glob pattern that matches the pattern of your new outputs. We test these patterns aginst new outputs from the feedstock
+using the Python <code>fnmatch</code> module. Outputs from the feedstock that match a glob pattern will added automatically. Further
+details on package output validation can be found in our <a href="https://conda-forge.org/docs/maintainer/infrastructure/#output-validation-and-feedstock-tokens" target="_blank" rel="noopener noreferrer" class="">documentation</a>.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Removing build in favor of python-build]]></title>
+            <link>https://conda-forge.org/news/2024/08/21/remove-build/</link>
+            <guid>https://conda-forge.org/news/2024/08/21/remove-build/</guid>
+            <pubDate>Wed, 21 Aug 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[For nearly two years now, we have favored the use python-build as the package name for the PyPA build]]></description>
+            <content:encoded><![CDATA[<p>For nearly two years now, we have favored the use <code>python-build</code> as the package name for the PyPA <a href="https://github.com/pypa/build" target="_blank" rel="noopener noreferrer" class=""><code>build</code></a>
+project over <code>build</code>. In fact, the <code>build</code> feedstock on <code>conda-forge</code> is archived and has not had its version
+updated. To complete this transition, we are going to mark all existing <code>build</code> packages as broken, provide
+a more detailed linter hint, and turn off the migration infrastructure we've been using to help move feedstocks.
+Any questions or comments can be directed to the <a href="https://github.com/conda-forge/conda-forge.github.io/issues/2269" target="_blank" rel="noopener noreferrer" class="">GitHub issue</a> on this work.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Removing wheel and setuptools as Dependencies for pip]]></title>
+            <link>https://conda-forge.org/news/2024/08/21/sunsetting-pip-deps/</link>
+            <guid>https://conda-forge.org/news/2024/08/21/sunsetting-pip-deps/</guid>
+            <pubDate>Wed, 21 Aug 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Starting with Python 3.13, pip will no longer have setuptools and wheel as dependencies]]></description>
+            <content:encoded><![CDATA[<p>Starting with Python 3.13, <code>pip</code> will no longer have <code>setuptools</code> and <code>wheel</code> as dependencies
+by default. While this default made sense at the time <code>conda-forge</code> was started (over 8 years ago!),
+with the advent of Python packaging build backends (e.g., <code>flit</code>, <code>poetry</code>, <code>hatchling</code>, etc.),
+this default is no longer correct. Instead, you will need to specify <code>wheel</code> and/or <code>setuptools</code> explicitly in the <code>host</code>
+section of your recipe if you need them. At first, <code>pip</code> for versions of Python before 3.13 will be unaffected.
+However, after the completion of the Python 3.13 migration, we will remove these dependencies from <code>pip</code> for all
+versions of Python. Follow GitHub issue <a href="https://github.com/conda-forge/conda-forge.github.io/issues/2252" target="_blank" rel="noopener noreferrer" class="">#2252</a>
+for more information and updates.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Sunsetting PyPy support]]></title>
+            <link>https://conda-forge.org/news/2024/08/14/sunsetting-pypy/</link>
+            <guid>https://conda-forge.org/news/2024/08/14/sunsetting-pypy/</guid>
+            <pubDate>Wed, 14 Aug 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[TL;DR: We are planning to remove PyPy from conda-forge feedstock recipes in a]]></description>
+            <content:encoded><![CDATA[<p>TL;DR: We are planning to remove PyPy from conda-forge feedstock recipes in a
+few weeks (and thus to stop building new releases of packages for PyPy), unless
+there is substantial enough interest to justify the continued maintenance effort.</p>
+<p>Conda-forge introduced <a href="https://conda-forge.org/blog/2020/03/10/pypy/" target="_blank" rel="noopener noreferrer" class="">support</a>
+for <a href="https://pypy.org/index.html" target="_blank" rel="noopener noreferrer" class="">PyPy</a> as an alternative implementation of
+Python about 4.5 years ago.</p>
+<p>In that time we have worked hard together with developers from PyPy to provide
+easily installable pre-compiled builds of the most common libraries also for PyPy.</p>
+<p>As a very positive side-effect, the infrastructure of conda-forge is now fully
+equipped to deal with alternative implementations of the Python interpreter,
+which will continue to be useful (for example for supporting the experimental
+free-threading builds of CPython 3.13).</p>
+<p>However, due to a lack of resources – both in terms of expertise for PyPy, as
+well as available time of those who can help – the conda-forge builds for PyPy
+packages have been in minimal maintenance for a while (for example, we never
+migrated for PyPy 3.10, nor did PyPy participate in the NumPy 2.0 migration).</p>
+<p>As a consequence, we unfortunately need to announce that we are sunsetting
+support for PyPy. This means we will stop the long-running migrator to add
+PyPy to new feedstocks, and we will begin removing PyPy builds from feedstocks
+at the latest on October 1st, or when we begin migrating for CPython 3.13
+(whichever comes earlier).</p>
+<p>If you are depending on PyPy builds in some way, please let us know about the
+specifics of your situation in the discussion issue for the
+<a href="https://github.com/conda-forge/conda-forge.github.io/issues/2255" target="_blank" rel="noopener noreferrer" class="">RFC</a>.</p>
+<p>There is a possibility that we receive the necessary support from the PyPy
+developers, if it turns out that enough people depend on PyPy support in
+conda-forge for it to be worth their time. As such, please speak up if you
+fall into this category!</p>
+<p>Finally, no matter the outcome, we want to congratulate the PyPy developers
+for their important contributions and exploration of what is possible in the
+Python ecosystem! 👏</p>
+<p>It has been a pleasure to collaborate!</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Sunsetting Mambaforge]]></title>
             <link>https://conda-forge.org/news/2024/07/29/sunsetting-mambaforge/</link>
             <guid>https://conda-forge.org/news/2024/07/29/sunsetting-mambaforge/</guid>
             <pubDate>Mon, 29 Jul 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[With the Miniforge 23.3.1 release,]]></description>
-            <content:encoded><![CDATA[<p>With the <a href="https://github.com/conda-forge/miniforge/releases/tag/23.3.1-0" target="_blank" rel="noopener noreferrer">Miniforge 23.3.1 release</a>,
+            <content:encoded><![CDATA[<p>With the <a href="https://github.com/conda-forge/miniforge/releases/tag/23.3.1-0" target="_blank" rel="noopener noreferrer" class="">Miniforge 23.3.1 release</a>,
 the Miniforge and Mambaforge installers became essentially <strong>identical</strong>. The only difference
 between the two was their name and, subsequently, the default installation directory.</p>
 <p>Maintaining both installers adds unnecessary burden to our support infrastructure and creates
@@ -25,16 +377,16 @@ Miniforge. Remember they contain the same packages, so the only difference is th
 installation directory.</p>
 <p>The deprecation process will roughly follow this calendar:</p>
 <ul>
-<li>August 2024: The Mambaforge installers will warn about the deprecation and make the user wait 30
+<li class="">August 2024: The Mambaforge installers will warn about the deprecation and make the user wait 30
 seconds before continuing.</li>
-<li>October 2024: The Mambaforge installers will refuse to install during several pre-specified date ranges (i.e., <a href="https://en.wikipedia.org/wiki/Brownout_(software_engineering)" target="_blank" rel="noopener noreferrer">"brownouts"</a>) in order to encourage users to switch to Miniforge. These dates are
+<li class="">October 2024: The Mambaforge installers will refuse to install during several pre-specified date ranges (i.e., <a href="https://en.wikipedia.org/wiki/Brownout_(software_engineering)" target="_blank" rel="noopener noreferrer" class="">"brownouts"</a>) in order to encourage users to switch to Miniforge. These dates are
 <ul>
-<li>Every two weeks in October 2024 (2024-10-01, 2024-10-15)</li>
-<li>Every ten days in November 2024 (2024-11-01, 2024-11-10, 2024-11-20, 2024-11-30)</li>
-<li>Every five days in December 2024 (2024-12-05, 2024-12-10, 2024-12-15, 2024-12-20, 2024-12-25, 2024-12-30, 2024-12-31)</li>
+<li class="">Every two weeks in October 2024 (2024-10-01, 2024-10-15)</li>
+<li class="">Every ten days in November 2024 (2024-11-01, 2024-11-10, 2024-11-20, 2024-11-30)</li>
+<li class="">Every five days in December 2024 (2024-12-05, 2024-12-10, 2024-12-15, 2024-12-20, 2024-12-25, 2024-12-30, 2024-12-31)</li>
 </ul>
 </li>
-<li>January 2025: The Mambaforge installers will stop being built and distributed.</li>
+<li class="">January 2025: The Mambaforge installers will stop being built and distributed.</li>
 </ul>]]></content:encoded>
         </item>
         <item>
@@ -46,374 +398,10 @@ seconds before continuing.</li>
             <content:encoded><![CDATA[<p>In preparation for the NumPy 2 release, we have begun a migration of all
 conda-forge packages that depend on <code>numpy</code> during the build (so in
 <code>requirements/host</code>). The migration status is tracked
-<a href="https://conda-forge.org/status/migration/?name=numpy2">on our status page</a>.
+<a class="" href="https://conda-forge.org/status/migration/?name=numpy2">on our status page</a>.
 Particular package's status can be found there. Specific recommendations for
 maintainers updating packages can be found in the migration PRs themselves.
 Please reach out through the usual channels if you have any questions.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Azure macOS x64 runners will now default to macos-12]]></title>
-            <link>https://conda-forge.org/news/2024/05/02/bump-macos-12/</link>
-            <guid>https://conda-forge.org/news/2024/05/02/bump-macos-12/</guid>
-            <pubDate>Thu, 02 May 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[Azure Pipelines has deprecated the macos-11 images. As a result we have bumped the default Azure vmImage setting to macos-12.]]></description>
-            <content:encoded><![CDATA[<p>Azure Pipelines has deprecated the <a href="https://github.com/actions/runner-images/blob/81eb448ee02647a9634bbba21d902b1424b31915/images/macos/macos-11-Readme.md" target="_blank" rel="noopener noreferrer"><code>macos-11</code> images</a>. As a result we have <a href="https://github.com/conda-forge/conda-smithy/releases/tag/v3.35.0" target="_blank" rel="noopener noreferrer">bumped</a> the default Azure <code>vmImage</code> setting to <a href="https://github.com/actions/runner-images/blob/c7efc0685d959677c603acf49604c13396d854a3/images/macos/macos-12-Readme.md" target="_blank" rel="noopener noreferrer"><code>macos-12</code></a>.
-You can check <a href="https://github.com/conda-forge/conda-forge.github.io/issues/2067" target="_blank" rel="noopener noreferrer">this issue</a> for more details.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Clang now available as compiler for all platforms]]></title>
-            <link>https://conda-forge.org/news/2024/04/30/clang-everywhere/</link>
-            <guid>https://conda-forge.org/news/2024/04/30/clang-everywhere/</guid>
-            <pubDate>Tue, 30 Apr 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[Our compiler stack per platform generally uses the "default" compiler for that]]></description>
-            <content:encoded><![CDATA[<p>Our compiler stack per platform generally uses the "default" compiler for that
-platform, see e.g. <a href="https://conda-forge.org/docs/maintainer/infrastructure/#compilers-and-runtimes" target="_blank" rel="noopener noreferrer">here</a>.</p>
-<p>In practice, this meant that</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">c_compiler</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> gcc         </span><span class="token comment" style="color:#999988;font-style:italic"># [linux]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> clang       </span><span class="token comment" style="color:#999988;font-style:italic"># [osx]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> vs2019      </span><span class="token comment" style="color:#999988;font-style:italic"># [win]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token key atrule" style="color:#00a4db">cxx_compiler</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> gxx         </span><span class="token comment" style="color:#999988;font-style:italic"># [linux]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> clangxx     </span><span class="token comment" style="color:#999988;font-style:italic"># [osx]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> vs2019      </span><span class="token comment" style="color:#999988;font-style:italic"># [win]</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>was the only possible choice for C/C++ compilers.</p>
-<p>Recently, we finished adding preliminary support <code>clang</code> / <code>clangxx</code> as
-C/C++ compilers also on linux and windows, starting from clang 18.
-This is still very fresh, so bugs are possible, and we ask not to change
-the default compilers on feedstocks unless there are compelling reasons.</p>
-<p>In any case, it is now possible to use the following configuration in
-<code>recipe/conda_build_config.yaml</code> (note the lack of platform selectors):</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">c_compiler</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> clang</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token key atrule" style="color:#00a4db">c_compiler_version</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">18</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token key atrule" style="color:#00a4db">cxx_compiler</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> clangxx</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token key atrule" style="color:#00a4db">cxx_compiler_version</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">18</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[The new conda-forge.org]]></title>
-            <link>https://conda-forge.org/news/2024/04/09/new-website/</link>
-            <guid>https://conda-forge.org/news/2024/04/09/new-website/</guid>
-            <pubDate>Tue, 09 Apr 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[As you might have noticed, for the last few months we have been changing different parts of the conda-forge.org website. Read more to learn more about what we changed, how it works and how to contribute.]]></description>
-            <content:encoded><![CDATA[<p>As you might have noticed, for the last few months we have been changing different parts of the conda-forge.org website. Read more to learn more about what we changed, how it works and how to contribute.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="old-vs-new">Old vs new<a class="hash-link" aria-label="Direct link to Old vs new" title="Direct link to Old vs new" href="https://conda-forge.org/news/2024/04/09/new-website/#old-vs-new">​</a></h2>
-<p>The <a href="https://github.com/conda-forge/conda-forge.github.io/tree/1d3214c295a46a249434de4fcf48c6b8d747a07f" target="_blank" rel="noopener noreferrer">old conda-forge.org</a> documentation was written with <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener noreferrer">Sphinx</a>. Some extra extensions were responsible for the other parts of the website; e.g. the <a href="https://github.com/conda-forge/blog" target="_blank" rel="noopener noreferrer">blog</a>, the <a href="https://github.com/conda-forge/conda-forge.github.io/tree/1d3214c295a46a249434de4fcf48c6b8d747a07f/newsfeed" target="_blank" rel="noopener noreferrer">RSS feed</a>, the <a href="https://github.com/conda-forge/conda-forge.github.io/blob/1d3214c295a46a249434de4fcf48c6b8d747a07f/index.html.tmpl" target="_blank" rel="noopener noreferrer">frontpage</a>, <a href="https://github.com/conda-forge/conda-forge.github.io/blob/1d3214c295a46a249434de4fcf48c6b8d747a07f/feedstock_outputs.html.tmpl" target="_blank" rel="noopener noreferrer">feedstock outputs</a>, or the <a href="https://github.com/conda-forge/status/tree/bde62db0bc9de460f533d60ca6218604c3e42fa5/site" target="_blank" rel="noopener noreferrer">status page</a>.</p>
-<p>The new website has been rewritten using the <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer">Docusaurus</a> project. This allows us to have a single framework for all the sections of the site. There are some big differences if we compare the new site with the old one:</p>
-<ul>
-<li>Sphinx was written in Python. Docusaurus uses the Node.js stack.</li>
-<li>Most of our docs were written in RST. Docusaurus handles Markdown and MDX (Markdown + JSX).</li>
-<li>Instead of generating static HTML from Jinja templates, we now prefer fetching the JSON payloads and render the relevant pages at build time (i.e. when we run <code>npm run build</code>) or at load time (when the user visits the website). This allows to have all the website rendering logic in the same repository with a unified theme, search engine and statistics.</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-we-have-changed">What we have changed<a class="hash-link" aria-label="Direct link to What we have changed" title="Direct link to What we have changed" href="https://conda-forge.org/news/2024/04/09/new-website/#what-we-have-changed">​</a></h2>
-<ul>
-<li>The theme for the whole site is responsive, accessible, mobile friendly and supports dark/light modes. A style guide is available too.</li>
-<li>The Status dashboard fetches data dynamically and provides detailed views for each migration.</li>
-<li>The Packages section lists latest updates in addition to mapping packages to feedstocks.</li>
-<li>A new Download page displays links to the latest Miniforge installers.</li>
-<li>The documentation has been split in two top-level categories: Docs and Community.</li>
-<li>Algolia generously serves the backend for the search bar.</li>
-<li>Netlify will render previews on each opened PR for a smoother contribution process.</li>
-<li>The blog posts and the announcements feed are served natively by Docusaurus.</li>
-<li>We converted all the Sphinx-native ReStructuredText documents to Docusaurus-friendly Markdown.</li>
-<li>The conda-forge.yml docs are autogenerated from the conda-smithy schemas.</li>
-<li>... and a bunch of smaller changes in the documentation. Refer to the <a href="https://github.com/conda-forge/conda-forge.github.io/issues/1971" target="_blank" rel="noopener noreferrer">meta-issue</a> for more information!</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-features-you-can-use">New features you can use<a class="hash-link" aria-label="Direct link to New features you can use" title="Direct link to New features you can use" href="https://conda-forge.org/news/2024/04/09/new-website/#new-features-you-can-use">​</a></h2>
-<ul>
-<li>Learn how to use and maintain packages from conda-forge in the <a href="https://conda-forge.org/docs/">main documentation section</a>.</li>
-<li>Read about how our community is set up in the <a href="https://conda-forge.org/community/">Community section</a></li>
-<li>The most recent changes to our infrastructure will be announced in <a href="https://conda-forge.org/news/">News</a>. You can also subscribe to the <a href="https://conda-forge.org/news/rss.xml" target="_blank" rel="noopener noreferrer">RSS feed</a> and browse the <a href="https://conda-forge.org/news/archive/">archive</a>.</li>
-<li>Important information about the ecosystem is discussed in the <a href="https://conda-forge.org/blog/">Blog</a>. You can also subscribe to the <a href="https://conda-forge.org/blog/rss.xml" target="_blank" rel="noopener noreferrer">RSS feed</a> and browse the <a href="https://conda-forge.org/blog/archive/">archive</a>. The posts are sometimes categorized with <a href="https://conda-forge.org/blog/tags/">tags</a> too.</li>
-<li>Use the search bar to locate any document in the website! It should be smart enough to remember the content you need more often. Use the <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd> shortcut for faster access.</li>
-<li>The <a href="https://conda-forge.org/status/">Status dashboard</a> will inform you about the latest incidents and ongoing migrations. Each migration has now a permalink you can explore and share!</li>
-<li>The <a href="https://conda-forge.org/packages/">Packages</a> section will help you find all the packages in conda-forge. If you don't type anything in the search bar, it will list the last 100 uploads to the Anaconda.org channel. The metadata link in each row will take you to the <a href="https://conda-metadata-app.streamlit.app/" target="_blank" rel="noopener noreferrer"><code>conda-metadata-app</code> dashboard</a>.</li>
-<li>Use the <a href="https://conda-forge.org/download/">Download page</a> to get the latest Miniforge installers.</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-help-and-contribute">How to help and contribute<a class="hash-link" aria-label="Direct link to How to help and contribute" title="Direct link to How to help and contribute" href="https://conda-forge.org/news/2024/04/09/new-website/#how-to-help-and-contribute">​</a></h2>
-<p>We have changed a lot of things, so there's a chance we missed something somewhere. If you have suggestions or errors to report, please let us know in the <a href="https://github.com/conda-forge/conda-forge.github.io/issues" target="_blank" rel="noopener noreferrer">website issue tracker</a>. Feel free to check the <a href="https://conda-forge.org/docs/user/contributing/#improve-the-website">documentation contribution guidelines</a> too.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="acknowledgements">Acknowledgements<a class="hash-link" aria-label="Direct link to Acknowledgements" title="Direct link to Acknowledgements" href="https://conda-forge.org/news/2024/04/09/new-website/#acknowledgements">​</a></h2>
-<p>This revamp was a months-long effort. The core team would like to take a moment to thank to all the contributors that made it possible (in alphabetical order): Afshin Darian, Asmit Malakannawar, Gabriela Vives, Isabela Presedo-Floyd, Klaus Zimmermann, Tania Allard.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Upcoming migration for stdlib("c")]]></title>
-            <link>https://conda-forge.org/news/2024/03/24/stdlib-migration/</link>
-            <guid>https://conda-forge.org/news/2024/03/24/stdlib-migration/</guid>
-            <pubDate>Sun, 24 Mar 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[Almost since the inception of conda-forge, the baseline version of our standard]]></description>
-            <content:encoded><![CDATA[<p>Almost since the inception of conda-forge, the baseline version of our standard
-library ("stdlib") for C has not changed. This library comes with extra
-complications because it is an essential part of the operating system, and one
-of the few things that conda/mamba/etc. cannot ship safely.</p>
-<p>As the ecosystem has moved on and many packages are starting to require newer
-baseline versions, we need to follow suit at some point. However, to avoid
-breaking users on older systems, we need to have infrastructure in place that
-allows our packages to have sufficiently accurate metadata, such that conda can
-avoid the installation of a package requiring a newer stdlib on an old system.</p>
-<p>After many discussions across conda-forge stakeholders, the solution we arrived
-at is the introduction of a new Jinja2-function <code>{{ stdlib("c") }}</code>, which
-reflects that a given recipe requires a C stdlib. Making this relationship
-explicit will make it easy to correctly reflect the requirement for newer
-stdlib versions per feedstock, as well as in our global pinning.</p>
-<p>Up until now, the stdlib was handled implicitly as part of the compiler stack.
-In order to allow this transition to happen, we need to introduce this function
-to essentially all compiled recipes. This will be done in stages, first for a
-single migration, and then attached to <em>all</em> ongoing migrations in conda-forge.</p>
-<p>The logic of the piggyback migrator tries to correctly handle most scenarios,
-but it is impossible to cover all corner cases. As for some general rules that
-all feedstock maintainers are free to apply independently:</p>
-<ul>
-<li>if a feedstock uses a <code>- {{ compiler(...) }}</code> jinja in the build section,
-add a line with <code>- {{ stdlib("c") }}</code> to the build environment.</li>
-<li>if a feedstock uses <code>- sysroot_linux-64 2.17  # [linux64]</code> (or a variation),
-remove this line and add the following to your <code>conda_build_config.yaml</code>:
-<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">c_stdlib_version:              # [linux]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - 2.17                       # [linux]</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-</li>
-<li>if a feedstock sets <code>MACOSX_DEPLOYMENT_TARGET</code> in <code>conda_build_config.yaml</code>,
-for example to 10.13 for <code>x86_64</code>, replace that section with the following
-(note, this does <em>not</em> apply to <code>MACOSX_SDK_VERSION</code>!):
-<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">c_stdlib_version:              # [osx and x86_64]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - 10.13                      # [osx and x86_64]</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-</li>
-<li>In <code>meta.yaml</code>, you can then remove any variations of <code>- __glibc &gt;=2.17</code> or
-<code>- __osx &gt;={{ MACOSX_DEPLOYMENT_TARGET }}  # [osx and x86_64]</code>, as this will
-henceforth be handled through <code>- {{ stdlib("c") }}</code>.</li>
-</ul>
-<p>Following the application of any of the above changes, the feedstock should be
-<a href="https://conda-forge.org/docs/maintainer/updating_pkgs/#rerendering-feedstocks" target="_blank" rel="noopener noreferrer">rerendered</a>.</p>
-<p>As these mechanisms begin rolling out, we will also update the maintainer
-documentation in the conda-forge knowledge base. For more details, see this
-<a href="https://github.com/conda-forge/conda-forge.github.io/issues/2102" target="_blank" rel="noopener noreferrer">issue</a>.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Dropping CUDA 11.2 on 2024 April 22]]></title>
-            <link>https://conda-forge.org/news/2024/03/06/dropping-cuda-112/</link>
-            <guid>https://conda-forge.org/news/2024/03/06/dropping-cuda-112/</guid>
-            <pubDate>Wed, 06 Mar 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[Conda-forge is dropping support for CUDA 11.2.]]></description>
-            <content:encoded><![CDATA[<p>Conda-forge is dropping support for CUDA 11.2.</p>
-<p>The latest version of the CUDA 11 series is CUDA 11.8. At this point CUDA 11.8+
-is well-supported in conda-forge. This is a result of running extensive
-migration efforts to upgrade conda-forge feedstocks to newer CUDA versions.</p>
-<p>CUDA 11.8 packages can be installed and run on the same hardware that CUDA 11.2
-supports. Also CUDA 11.8 packages have optimizations for newer hardware that
-CUDA 11.2 packages do not. So there is a benefit to users to upgrade to CUDA
-11.8.</p>
-<p>A very small number of feedstocks that appear unmaintained have not been
-migrated. Issues have been raised on those feedstock to make maintainers aware
-of this deprecation plan. Until they are updated users can still install the
-CUDA 11.2 packages they produced previously. These should continue to work.
-However there will be no way to rebuild these packages without also updating to
-CUDA 11.8.</p>
-<p>To upgrade an older feedstock to CUDA 11.8, simply re-render. If the recipe has
-a <code>skip</code> or other logic that blocks this from happening, simply remove this
-logic and re-render to add CUDA 11.8.</p>
-<p>The date has been sent to ensure 1 full work week for maintainers to do any
-remaining updates to move to CUDA 11.8+. In 2024 May, <a href="https://gitlab.com/nvidia/container-images/cuda/-/issues/209#note_1641845842" target="_blank" rel="noopener noreferrer">NVIDIA plans to delete
-the CUDA 11.2 Docker image</a>
-that conda-forge has been using to build for CUDA 11.2. So it will not be
-possible for conda-forge to update the CUDA 11.2 Docker image, which will make
-it much harder to maintain. Feedstock maintainers are encouraged to update
-before then (if they have not already done so).</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Rust 1.75 requires setting newer MACOSX_DEPLOYMENT_TARGET]]></title>
-            <link>https://conda-forge.org/news/2024/01/29/rust-175-osx-sdk/</link>
-            <guid>https://conda-forge.org/news/2024/01/29/rust-175-osx-sdk/</guid>
-            <pubDate>Mon, 29 Jan 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[With the release of rust 1.75, we now require setting the minimal]]></description>
-            <content:encoded><![CDATA[<p>With the release of <code>rust 1.75</code>, we now require setting the minimal
-<code>MACOSX_DEPLOYMENT_TARGET</code> to at least <code>10.12</code>. You can do this by appending
-<code>recipe/conda_build_config.yaml</code> with the following content:</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">c_stdlib_version</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain">       </span><span class="token comment" style="color:#999988;font-style:italic"># [osx and x86]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'10.12'</span><span class="token plain">             </span><span class="token comment" style="color:#999988;font-style:italic"># [osx and x86]</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>and adding <code>{{ stdlib("c") }}</code> as build dependency next to your compiler jinja:</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">build</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> compiler("rust") </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> stdlib("c") </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>Note: This entry was update in April 2024 to reflect the new infrastructure for
-setting <code>MACOSX_DEPLOYMENT_TARGET</code>, see
-<a href="https://conda-forge.org/news/2024/03/24/stdlib-migration/" target="_blank" rel="noopener noreferrer">here</a>.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Python 3.12 migration and Python 3.11 by default]]></title>
-            <link>https://conda-forge.org/news/2023/09/25/python-312-migration-and-python-311-by-default/</link>
-            <guid>https://conda-forge.org/news/2023/09/25/python-312-migration-and-python-311-by-default/</guid>
-            <pubDate>Mon, 25 Sep 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[With the Python 3.12 release approaching, we have already started the]]></description>
-            <content:encoded><![CDATA[<p>With the Python 3.12 release approaching, we have already started the
-rebuild of packages for it. Although, there is no offical Python 3.12
-release yet, the release candidates of it will have the same ABI. Thus
-packages built with the release candidate can be safely used with the
-later offical release. To support rebuilding packages on conda-forge
-while ensuring Python release candidates don't end up in end-user
-solves, we have uploaded the Python 3.12.0rc2 and rc3 builds to the
-<code>conda-forge/label/python_rc</code> channel. The <code>python312</code> migration adds
-this channel in the feedstock builds to the Python 3.12 matrix entry. On
-the offical release of Python 3.12, we will adjust the migration and
-remove the channel again. Then (on a rerender), feedstock will only
-consume the main channel again.</p>
-<p>Overall, this approach allows us to provide Python 3.12 for a wide range
-of packages already on the day of the offical Python 3.12 release.
-At the same time, we have stopped the Python 3.11 migration and added it
-to the list of default Python versions on conda-forge.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Bumping Minimum MacOS version to 10.13]]></title>
-            <link>https://conda-forge.org/news/2023/08/24/bumping-minimum-macos-version-to-1013/</link>
-            <guid>https://conda-forge.org/news/2023/08/24/bumping-minimum-macos-version-to-1013/</guid>
-            <pubDate>Thu, 24 Aug 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[We will bump the minimum MacOS version from 10.9 (released in Oct. 2013,]]></description>
-            <content:encoded><![CDATA[<p>We will bump the minimum MacOS version from 10.9 (released in Oct. 2013,
-end-of-life since Dec. 2016) to 10.13 (released Sept. 2017, end-of-life
-since Dec. 2020). The main reason we managed to support 10.9 this long
-at all, is that conda-forge is able to ship an up-to-date C++ standard
-library for OSX, <code>libcxx</code>, superseding the old one present in the MacOS
-SDK on the system (at least from the point-of-view of the respective
-conda environments).</p>
-<p>However, several core packages in the ecosystem now require at least
-10.13 (or will very soon), in a way that we cannot be circumvent. These
-packages include <code>libcxx</code>,
-<a href="https://discourse.llvm.org/t/libc-bumping-minimal-deployment-target-for-building-the-dylib-static-library-on-macos/68912" target="_blank" rel="noopener noreferrer">starting</a>
-with version 17.0. This change will not affect already published
-artifacts, but in the near future, all new builds for OSX will require
-at least 10.13. This constraint will be implemented through the <code>__osx</code>
-virtual package, but the details of how we will achieve this are still
-being worked out. Only <code>conda</code> versions 4.8.0 or newer have this virtual
-package. If you are using a system with MacOS older than 10.13 and are
-using <code>conda</code> older than 4.8.0, you will need to either upgrade <code>conda</code>
-to at least 4.8.0 or upgrade your system to at least MacOS 10.13.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[End-of-life for CentOS 6]]></title>
-            <link>https://conda-forge.org/news/2023/07/12/end-of-life-for-centos-6/</link>
-            <guid>https://conda-forge.org/news/2023/07/12/end-of-life-for-centos-6/</guid>
-            <pubDate>Wed, 12 Jul 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[As you may be aware, we have delayed the deprecation of our CentOS 6 build system the linux64]]></description>
-            <content:encoded><![CDATA[<p>As you may be aware, we have delayed the deprecation of our CentOS 6 build system the <code>linux64</code>
-platform several times. We have now set a formal deprecation date to be June 30, 2024. This date
-matches the <a href="https://access.redhat.com/articles/4038291" target="_blank" rel="noopener noreferrer">end of extended life-cycle support</a> from
-RedHat for RHEL 6. After this date, we build packages against CentOS 7 by default for <code>linux64</code>.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[conda-forge Google Group is Now Read-only - Move to Discourse]]></title>
-            <link>https://conda-forge.org/news/2023/01/09/conda-forge-google-group-is-now-read-only-move-to-discourse/</link>
-            <guid>https://conda-forge.org/news/2023/01/09/conda-forge-google-group-is-now-read-only-move-to-discourse/</guid>
-            <pubDate>Mon, 09 Jan 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[We have made the conda-forge Google Group read-only. Please use the new]]></description>
-            <content:encoded><![CDATA[<p>We have made the conda-forge Google Group read-only. Please use the new
-conda-forge <a href="https://conda.discourse.group/c/pkg-building/conda-forge/25" target="_blank" rel="noopener noreferrer">discourse
-forum</a>, our
-<a href="https://gitter.im/conda-forge/conda-forge.github.io" target="_blank" rel="noopener noreferrer">Gitter room</a>, or
-it's <a href="https://app.element.io/#/room/#conda-forge-space:matrix.org" target="_blank" rel="noopener noreferrer">Matrix/Element
-counterpart</a>
-instead.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[conda-forge/staged-recipes Feedstock Creation Job Moved]]></title>
-            <link>https://conda-forge.org/news/2023/01/08/conda-forge-staged-recipes-feedstock-creation-job-moved/</link>
-            <guid>https://conda-forge.org/news/2023/01/08/conda-forge-staged-recipes-feedstock-creation-job-moved/</guid>
-            <pubDate>Sun, 08 Jan 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[We have moved the CI job that makes new feedstocks to our]]></description>
-            <content:encoded><![CDATA[<p>We have moved the CI job that makes new feedstocks to our
-<a href="https://github.com/conda-forge/admin-requests" target="_blank" rel="noopener noreferrer">conda-forge/admin-requests</a>
-repo. The new location is reflected in the various links on repos and
-our status page.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Moving to .conda Artifacts]]></title>
-            <link>https://conda-forge.org/news/2022/11/16/moving-to-conda-artifacts/</link>
-            <guid>https://conda-forge.org/news/2022/11/16/moving-to-conda-artifacts/</guid>
-            <pubDate>Wed, 16 Nov 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[conda-forge is moving to producing conda artifacts in the version 2]]></description>
-            <content:encoded><![CDATA[<p>conda-forge is moving to producing <code>conda</code> artifacts in the version 2
-package format (also known as <code>.conda</code>). These artifacts allow for more
-efficient indexing and maintenance of the ecosystem. Our admin
-migrations bot will begin making PRs to feedstocks to change them over
-to the new artifact format. You will need <code>conda</code> version 4.7 or later
-to use the new <code>.conda</code> artifacts. Please leave a comment on <a href="https://github.com/conda-forge/conda-forge.github.io/issues/1586" target="_blank" rel="noopener noreferrer">this
-issue</a>
-if you encounter problems or have feedback.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Releasing Python 3.8.14, 3.9.14, and 3.10.7]]></title>
-            <link>https://conda-forge.org/news/2022/11/04/releasing-python-3814-3914-and-3107/</link>
-            <guid>https://conda-forge.org/news/2022/11/04/releasing-python-3814-3914-and-3107/</guid>
-            <pubDate>Fri, 04 Nov 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[The CPython versions 3.8.14, 3.9.14, and 3.10.7 were released some weeks]]></description>
-            <content:encoded><![CDATA[<p>The CPython versions 3.8.14, 3.9.14, and 3.10.7 were released some weeks
-ago to mitigate
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-10735" target="_blank" rel="noopener noreferrer">CVE-2020-10735</a>. The
-chosen mitigation strategy might cause errors (e.g.
-<code>ValueError: Exceeds the limit (4300) for integer string conversion</code>) in
-some libraries. If you are affected, please read the
-<a href="https://docs.python.org/release/3.10.7/whatsnew/3.10.html#notable-security-feature-in-3-10-7" target="_blank" rel="noopener noreferrer">announcement</a>
-and learn about the available workarounds in the <a href="https://docs.python.org/3/library/stdtypes.html#integer-string-conversion-length-limitation" target="_blank" rel="noopener noreferrer">CPython
-documentation</a>.</p>
-<p>The conda-forge team <a href="https://github.com/conda-forge/python-feedstock/pull/579" target="_blank" rel="noopener noreferrer">has
-decided</a> to
-build and publish these releases with no additional changes. The new
-packages will be made available on or after 2022-11-10, following
-<a href="https://anaconda.cloud/anaconda-repo-news" target="_blank" rel="noopener noreferrer">Anaconda's decision</a>.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Conda Moving to CalVer]]></title>
-            <link>https://conda-forge.org/news/2022/09/27/conda-moving-to-calver/</link>
-            <guid>https://conda-forge.org/news/2022/09/27/conda-moving-to-calver/</guid>
-            <pubDate>Tue, 27 Sep 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Conda is moving to CalVer per [CEP]]></description>
-            <content:encoded><![CDATA[<p>Conda is moving to CalVer per <a href="https://github.com/conda-incubator/ceps/blob/main/cep-8.md" target="_blank" rel="noopener noreferrer">CEP
-8</a>. The
-first CalVer and last SemVer should be <code>22.9.0</code> and <code>4.14.0</code>
-respectively. This change maintains version order so you should not
-expect any issues.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Dropping Python 3.7]]></title>
-            <link>https://conda-forge.org/news/2022/08/24/dropping-python-37/</link>
-            <guid>https://conda-forge.org/news/2022/08/24/dropping-python-37/</guid>
-            <pubDate>Wed, 24 Aug 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Conda-Forge has been providing support for Python 3.7 for 4 years now.]]></description>
-            <content:encoded><![CDATA[<p>Conda-Forge has been providing support for Python 3.7 for 4 years now.</p>
-<p>Increasingly projects are moving off it (particularly in the PyData
-community). With Python 3.11's release coming around the corner (October
-3rd), conda-forge plans to drop Python 3.7 support when Python 3.11
-comes out. This will lighten the load on conda-forge infrastructure and
-make room for the new versions the community would like to support.</p>
-<p>More details can be found in issue
-<a href="https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/2623" target="_blank" rel="noopener noreferrer">conda-forge-pinning-feedstock#2623</a>. Feedback is welcome there.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Dropping PyPy 3.7]]></title>
-            <link>https://conda-forge.org/news/2022/08/17/dropping-pypy-37/</link>
-            <guid>https://conda-forge.org/news/2022/08/17/dropping-pypy-37/</guid>
-            <pubDate>Wed, 17 Aug 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Conda-forge has supported PyPy since almost 2.5 years now, and the]]></description>
-            <content:encoded><![CDATA[<p>Conda-forge has supported PyPy since almost 2.5 years now, and the
-initial PyPy 3.7 builds have been superseded in almost all aspects by
-the newer builds for 3.8 &amp; 3.9. We are therefore dropping PyPy 3.7 as a
-supported python version, and will keep focusing on the more
-contemporary PyPy builds.</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Moving to Visual Studio toolchain vc142]]></title>
-            <link>https://conda-forge.org/news/2022/08/11/moving-to-visual-studio-toolchain-vc142/</link>
-            <guid>https://conda-forge.org/news/2022/08/11/moving-to-visual-studio-toolchain-vc142/</guid>
-            <pubDate>Thu, 11 Aug 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Microsoft has deprecated the Visual Studio (VS) 2017 compiler and]]></description>
-            <content:encoded><![CDATA[<p>Microsoft has deprecated the Visual Studio (VS) 2017 compiler and
-removed it from all the CI they control (notably Azure Pipelines &amp;
-Github Actions). This means that the default toolchain (== C/C++
-compiler, linker, standard libraries, and related utilities) of that VS
-version - vc141 - is getting less and less use in upstream libraries
-(because public hosted CI doesn't use it anymore by default), and
-therefore support for it is bitrotting at an accelerating pace. We are
-therefore
-<a href="https://github.com/conda-forge/conda-forge-pinning-feedstock/pull/3167" target="_blank" rel="noopener noreferrer">planning</a>
-to move our toolchain on windows to vc142 (the default in VS2019) in two
-weeks, on 2022-08-25.</p>
-<p>This will not affect you as a general user of conda-forge packages on
-windows; the only impact is that if you are locally compiling against
-artefacts produced by conda-forge and are still using VS2017 yourself,
-you will need to upgrade your compiler (VS2019 is a drop-in replacement
-&amp; ABI-compatible).</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Azure OSX VM Image Bumped to Version 11]]></title>
-            <link>https://conda-forge.org/news/2022/07/22/azure-osx-vm-image-bumped-to-version-11/</link>
-            <guid>https://conda-forge.org/news/2022/07/22/azure-osx-vm-image-bumped-to-version-11/</guid>
-            <pubDate>Fri, 22 Jul 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Azure is removing their OSX 10.15 VM image and so we are bumping to 11.]]></description>
-            <content:encoded><![CDATA[<p>Azure is removing their OSX 10.15 VM image and so we are bumping to 11.
-You will need to rerender your feedstock to get this change. Feedstocks
-without the new VM image specified will not build after Azure fully
-removes the old image. Please get in touch with us if you have issues or
-questions!</p>]]></content:encoded>
         </item>
     </channel>
 </rss>
